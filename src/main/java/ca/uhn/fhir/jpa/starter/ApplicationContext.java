@@ -9,6 +9,10 @@ public class ApplicationContext extends AnnotationConfigWebApplicationContext {
         FhirVersionEnum fhirVersion = HapiProperties.getFhirVersion();
         if (fhirVersion == FhirVersionEnum.DSTU2) {
             register(FhirServerConfigDstu2.class, FhirServerConfigCommon.class);
+        } else if (fhirVersion == FhirVersionEnum.DSTU2_HL7ORG) {
+            register(FhirServerConfigDstu2Hl7Org.class, FhirServerConfigCommon.class);
+        } else if (fhirVersion == FhirVersionEnum.DSTU2_1) {
+            register(FhirServerConfigDstu2_1.class, FhirServerConfigCommon.class);
         } else if (fhirVersion == FhirVersionEnum.DSTU3) {
             register(FhirServerConfigDstu3.class, FhirServerConfigCommon.class);
         } else if (fhirVersion == FhirVersionEnum.R4) {
